@@ -1,13 +1,16 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import orders from "../../../assets/data/dashboard/orders.json"
 
 const HomeScreen = () => {
 
+    const navigation = useNavigation();
+
     const renderItem = ({ item }) => (
 
-      
-        <View style={styles.itemContainer}>
+     
+    <TouchableOpacity style={styles.itemContainer} onPress={()=> navigation.navigate('OrderScreen')}>
         <Text style={[styles.itemText, {width: 60}]}>{item.orderID}</Text>
         <Text style={[styles.itemText,{width: 150}]}>{item.deliveryAddress}</Text>
         <Text style={[styles.itemText, {width: 50}]}>R {item.price}</Text>
@@ -31,7 +34,7 @@ const HomeScreen = () => {
         :null}
         
 
-    </View>
+    </TouchableOpacity>
       );
 
 

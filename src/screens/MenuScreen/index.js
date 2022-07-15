@@ -1,8 +1,11 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 import dishes from "../../../assets/data/dashboard/dishes.json"
 
 const MenuScreen = () => {
+
+    const navigation = useNavigation();
 
     const renderItem = ({ item }) => (
 
@@ -24,7 +27,9 @@ const MenuScreen = () => {
       <View style={styles.ordersContainer}>
         <View style={styles.headerCover}>
             <Text style={styles.header}>Menu</Text>
+            <TouchableOpacity onPress={()=> navigation.navigate('AddMenuScreen')}>
             <Text style={[styles.header, {fontSize: 15, color: "white", backgroundColor: "#239B56", padding: 5}]}>New Item</Text>
+            </TouchableOpacity>
         </View>
         <View style={styles.tableHeaderContainer}>
             <Text style={[styles.tableHeaderText, {width: 200}]}>Menu Item</Text>
