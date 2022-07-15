@@ -6,23 +6,40 @@ import HomeScreen from '../screens/HomeScreen';
 import MenuScreen from '../screens/MenuScreen';
 import OrderHistory from '../screens/OrderHistory';
 import SettingScreen from '../screens/SettingScreen';
+import { Foundation, FontAwesome5, MaterialIcons, Octicons, Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
 const HomeTabNavigation = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="HomeScreen" component={HomeScreen} 
-      options={{ title: 'Home',  headerShown: false }}
+    <Tab.Navigator screenOptions={{ headerShown: false }} barStyle={{ backgroundColor: "#27AE60" }}>
+      <Tab.Screen name="Home" component={HomeScreen} 
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Octicons name="home" size={24} color={color} />
+        ),
+      }}
       />
-      <Tab.Screen name="MenuScreen" component={MenuScreen} 
-      options={{ title: 'Menu',  headerShown: false }}
+      <Tab.Screen name="Menu" component={MenuScreen} 
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="fast-food-outline" size={24} color={color} />
+            ),
+        }}
       />
-      <Tab.Screen name="OrderHistory" component={OrderHistory} 
-      options={{ title: 'Order History',  headerShown: false }}
+      <Tab.Screen name="Order History" component={OrderHistory} 
+        options={{
+          tabBarIcon: ({ color }) => (
+          <Octicons name="history" size={24} color={color} />
+            ),
+        }}
       />
-      <Tab.Screen name="SettingScreen" component={SettingScreen} 
-      options={{ title: 'Setting',  headerShown: false }}
+      <Tab.Screen name="Setting" component={SettingScreen} 
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="settings-outline" size={24} color={color} />
+          ),
+        }}
       />
     </Tab.Navigator>
   )
