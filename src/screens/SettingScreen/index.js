@@ -20,7 +20,7 @@ const SettingScreen = () => {
           <View style={styles.inputContainer}>
             <View style={[styles.inputTitleCover, {flexDirection: "row", alignItems: "center"}]}>
               <Text style={[styles.inputTitle,{color: "red"}]}>*</Text>
-              <Text style={styles.inputTitle}>Restaurant Nmae</Text>
+              <Text style={styles.inputTitle}>Restaurant Name</Text>
             </View>
             <TextInput style={styles.input} onChangeText={onChangeRestautantName} 
               value={restautantName} placeholder="Enter restaurant item here" keyboardType="default"
